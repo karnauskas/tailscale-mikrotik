@@ -62,8 +62,8 @@ FROM alpine:3.22
 
 RUN apk add --no-cache ca-certificates iptables iptables-legacy iproute2 bash openssh curl jq
 
-RUN rm /sbin/iptables && ln -s /sbin/iptables-legacy /sbin/iptables
-RUN rm /sbin/ip6tables && ln -s /sbin/ip6tables-legacy /sbin/ip6tables
+RUN rm /usr/sbin/iptables && ln -s /usr/sbin/iptables-legacy /usr/sbin/iptables && ln -s /usr/sbin/iptables-legacy /sbin/iptables
+RUN rm /usr/sbin/ip6tables && ln -s /usr/sbin/ip6tables-legacy /usr/sbin/ip6tables && ln -s /usr/sbin/ip6tables-legacy /sbin/ip6tables
 
 RUN ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa
 RUN ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa

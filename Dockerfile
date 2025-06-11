@@ -56,7 +56,7 @@ RUN GOARCH=$TARGETARCH go install -ldflags="-w -s\
       -X tailscale.com/version.GitCommit=$VERSION_GIT_HASH" \
       -v ./cmd/tailscale ./cmd/tailscaled
 
-RUN upx /go/bin/tailscale && upx /go/bin/tailscaled
+RUN upx -9 /go/bin/tailscale && upx -9 /go/bin/tailscaled
 
 FROM alpine:3.22
 

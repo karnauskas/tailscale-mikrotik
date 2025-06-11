@@ -66,7 +66,7 @@ RUN rm /usr/sbin/iptables && ln -s /usr/sbin/iptables-legacy /usr/sbin/iptables 
 RUN rm /usr/sbin/ip6tables && ln -s /usr/sbin/ip6tables-legacy /usr/sbin/ip6tables && ln -s /usr/sbin/ip6tables-legacy /sbin/ip6tables
 
 RUN ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa
-RUN ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa
+# RUN ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa
 
 COPY --from=build-env /go/bin/* /usr/local/bin/
 COPY sshd_config /etc/ssh/

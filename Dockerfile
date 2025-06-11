@@ -19,7 +19,7 @@
 #
 ############################################################################
 
-FROM golang:1.23-alpine AS build-env
+FROM golang:alpine3.22 AS build-env
 
 WORKDIR /go/src/tailscale
 
@@ -74,4 +74,3 @@ COPY tailscale.sh /usr/local/bin
 
 EXPOSE 22
 CMD ["/usr/local/bin/tailscale.sh"]
-
